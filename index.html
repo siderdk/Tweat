@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>Tweat</title>
-</head>
+</head rel=>
 <body>
     <section class="top">
-
+        <div class="time-counter">
+            <p>You have spent <span class="time-count"></span> <span class="duration-unit"></span> here</p>
+        </div>
+        <div class="timer-container">
+            <p>Make a timer for less than 60min</p>
+            <label>
+                <input type="number" max="59" min="1" class="time-amount-input"><button class="set-timer-btn">set</button>
+                <p class="timer-state"></p>
+            </label>
+        </div>
     </section>
     <section class="main">
-
-        <div class="builtinRecipes">
-            <div class="recipeCard">
-                <h3 class="recipe_name"></h3>
-                <img src="" class="recipeImg" alt="recipe illustration">
-                <ul class="ingredientsList">
-
-                </ul>
-                <p class="cookingSteps">
-
-                </p>
-            </div>
+        <div class="banner">
+            <h1>tweat</h1>
+            <p class="full-view-tag">Health, taste, and sustainability</p>
+            <p class="mobile-tag">to your health!</p>
         </div>
+
+        <div class="recipesContainer">
+            
+        </div>
+    <section class="userInput">
         <div class="create_recipes">
             <button class="addRecipeButton">Add a recipe</button>
-           
+        </div>
+    </section class="search-section">
+        <div class="search-bar">
+            <label>
+                <input type="text" class="keyword-seach-input" placeholder="Search by keyword">
+             </label>
+             <button class="keyword-search-btn">find</button>
+             <label>
+                Or, search by number of ingredients <input type="number" min="5" max="20" class="number-seach-input">
+             </label>
+             <button class="ingr-nbr-find-btn">find</button>
+             
+        </div>
+        
+        <div class="search-results">
 
         </div>
 
@@ -34,6 +56,6 @@
 
     </section>
     
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
