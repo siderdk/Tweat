@@ -10,7 +10,7 @@
 <body>
     <section class="top">
         <div class="time-counter">
-            <p>You have spent <span class="time-count"></span> <span class="duration-unit"></span> here</p>
+            <p>You have spent <span class="time-count"></span> here</p>
         </div>
         <div class="timer-container">
             <p>Make a timer for less than 60min</p>
@@ -26,36 +26,34 @@
             <p class="full-view-tag">Health, taste, and sustainability</p>
             <p class="mobile-tag">to your health!</p>
         </div>
-
-        <div class="recipesContainer">
-            
-        </div>
-    <section class="userInput">
-        <div class="create_recipes">
-            <button class="addRecipeButton">Add a recipe</button>
-        </div>
-    </section class="search-section">
+    </section>
+    <section class="search-section">
         <div class="search-bar">
             <label>
                 <input type="text" class="keyword-seach-input" placeholder="Search by keyword">
-             </label>
-             <button class="keyword-search-btn">find</button>
+             </label><button class="keyword-search-btn">find</button>
+        </div>
+        <div class="search-bar">
              <label>
                 Or, search by number of ingredients <input type="number" min="5" max="20" class="number-seach-input">
-             </label>
-             <button class="ingr-nbr-find-btn">find</button>
-             
+             </label><button class="ingr-nbr-find-btn">find</button>
         </div>
-        
-        <div class="search-results">
-
-        </div>
-
     </section>
-    <section class="bottom">
+    <section class="recipes">
+        <div class="recipesContainer">
+            
+        </div>
+    </section>
+    <section class="userInput">
+        <p>Not impressed by what we have? check our feature below:</p>
+        <div class="create_recipes">
+            <button class="addRecipeButton">Add your recipe to the list</button>
+        </div>
+    </section>
+    <section class="footer">
 
     </section>
     
-    <script src="script.js"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
