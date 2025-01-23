@@ -262,9 +262,9 @@ const timeCounter = () => {
 
     if (timeElapsed <59) {
       timeCount.innerText = `${seconds} seconds`;
-    } else if (timeElapsed > 59) {
+    } else if (timeElapsed > 59 && timeElapsed < 119) {
       timeCount.innerText = `${minutes} minute and ${seconds} seconds`
-    } else {timeCount.innerText = `${minutes} minutes and ${seconds} seconds`}
+    } else if (timeElapsed >= 120){timeCount.innerText = `${minutes} minutes and ${seconds} seconds`}
       // Alert if user has been on the page for more than an hour
       if (minutes > 59) {
           alert("There is no way you are on this page for this long! Thank you for your attention");

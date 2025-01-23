@@ -86,7 +86,9 @@ button, input, select, textarea {
 }
 
 /*App style*/
-
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Kumbh Sans';
@@ -263,6 +265,8 @@ input {
   background-color: #F5F5F5;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  transition: all 0.3s ease;
+  transition: max-height 0.4s ease, width 0.4s ease, box-shadow 0.4s ease;
 }
 .recipe-preview img {
   width: 8rem;
