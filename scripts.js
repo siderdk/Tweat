@@ -318,3 +318,14 @@ function addIngredient(event) {
 //     }
     
 // ]
+
+const unitTypes = {
+  weight: ["g", "kg"],
+  volume: ["ml", "dl", "l", "cup", "tbsp", "tsp"],
+  counts: ["piece", "dozen", "bottle", "pack", "clove"]
+
+  // shortcuts
+  // g = unitTypes.weight[0] kg = unitTypes.weight[1]
+  // ml = unitTypes.volume[0] dl = unitTypes.volume[1] l = unitTypes.volume[2] cup = unitTypes.volume[3] tbsp = unitTypes.volume[4] tsp = unitTypes.volume[5] 
+  // pieces = unitTypes.counts[0] dozen = unitTypes.counts[1]   bottle = unitTypes.counts[2] pack = unitTypes.counts[3] clove = unitTypes.counts[4]
+}

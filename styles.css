@@ -98,6 +98,21 @@ body {
   align-items: center;
 }
 
+nav svg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  height: 4rem;
+  width: 4rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+  border: 1px solid #036f11;
+  border-radius: 100%;
+  filter: grayscale(80%);
+}
+
 
 section {
   position: relative;
@@ -196,7 +211,7 @@ section {
   margin: 1rem;
 }
 
-input {
+.search-section input, .top input {
   border-radius: 0.5rem 0 0 0.5rem;
   background-color: rgba(3, 111, 17, 0.05);
   border-color: rgb(3, 111, 17);
@@ -266,7 +281,7 @@ input {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: all 0.3s ease;
-  transition: max-height 0.4s ease, width 0.4s ease, box-shadow 0.4s ease;
+  transition: max-height 1s ease, width 1s ease, box-shadow 1s ease;
 }
 .recipe-preview img {
   width: 8rem;
@@ -337,6 +352,112 @@ input {
  
 }
 
+.edit-recipe-btn, .delete-recipe-btn {
+  padding: 0.5rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  position: absolute;
+  
+}
+
+.delete-recipe-btn {
+  top: 0;
+  right: 0;
+}
+
+.edit-recipe-btn {
+  top: 0;
+  left: 0;
+}
+
+
+.edit-recipe-btn svg {
+  fill: #036f11;
+  width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.delete-recipe-btn svg {
+  fill: #ff0000;
+  width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.NewRecipeContainer button {
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #036f11;
+  border-color: #036f11;
+  border-style: solid;
+  border-width: 0.1em;
+  padding: 0.2rem;
+  cursor: pointer;
+  color: #F5F5F5;
+  font-weight: 700;
+}
+
+.create_recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.create_recipes .addRecipeForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.create_recipes input {
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: rgba(3, 111, 17, 0.05);
+  border-color: rgb(3, 111, 17);
+  border-style: solid;
+  border-width: 0.1em;
+  padding: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.create_recipes .recipeName, .create_recipes .recipeImage, .create_recipes .recipeInstructions {
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.create_recipes .ingredientAmount {
+  border-radius: 0;
+  
+}
+
+.create_recipes .recipeInstructions {
+  resize: vertical;
+}
+
+.create_recipes button{
+  border-radius: 0.5rem;
+  background-color: #036f11;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #F5F5F5;
+  font-weight: 700;
+  margin: 0.5rem;
+}
+.create_recipes fieldset{
+  display: flex;
+  flex-direction:  column;
+}
+.submitRecipe{
+  align-self: center;
+}
+
+.create_recipes .hidden {
+  display: none;
+}
 
 /*Responsiveness and Media queries*/
 @media (max-width: 800px) {
