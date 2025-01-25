@@ -233,8 +233,23 @@ ingredientSearchBtn.addEventListener("click", (e)=> {
   const result = getRecipeByIngredientNbr(allRecipes, num);
   if (num===0) {renderRecipeCard(recipesContainer, allRecipes)} else {renderRecipeCard(recipesContainer, result)}
   ;
-
 })
+ingredientNumber.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const regex = /^(|[^0-9]|[0-9]*[^0-9]|)$/; // regex to check if the input is a positive number
+    const str = ingredientNumber.value;
+    const num = parseInt(str.replace(regex, ""), 10); // parsing the number from the input
+    const result = getRecipeByIngredientNbr(allRecipes, num);
+    
+    if (num === 0) {
+      renderRecipeCard(recipesContainer, allRecipes);
+    } else {
+      renderRecipeCard(recipesContainer, result);
+    }
+  }
+});
+
+
 
 // finding recipes by keywords
 const getRecipeByKeyword = (recipesList, str) =>{
@@ -268,12 +283,13 @@ const getRecipeByKeyword = (recipesList, str) =>{
 
 
 keywordSearchBtn.addEventListener("click", async (e)=>{
- /* recipesSearchResults.innerHTML = ""*/
   const result = getRecipeByKeyword(allRecipes, keywordInput.value);
   renderRecipeCard(recipesContainer, result);
-
-} )
-
+} );
+keywordInput.addEventListener("keydown", async (e)=>{
+   const result = getRecipeByKeyword(allRecipes, keywordInput.value);
+   renderRecipeCard(recipesContainer, result);
+ } )
 
 //user timer 
 const TimeIsUp = ()=> {
