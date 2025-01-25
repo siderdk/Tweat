@@ -26,6 +26,12 @@ const timerState = document.querySelector('.timer-state')
 const addRecipeButton = document.querySelector('.addRecipeButton');
 const addRecipeForm = document.querySelector('.addRecipeForm');
 
+// the elements that will hold the new recipe
+const newRecipeName = document.querySelector('.newRecipeName');
+const newRecipeImg = document.querySelector('.newRecipeImage');
+const newRecipeType = document.querySelector('.newRecipeType');
+
+
 // the list of all recipes, will be an array of objects, to facilitate iteration and ordering
 //the list of units that are used in the recipes
 const unitTypes = {

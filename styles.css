@@ -1,7 +1,7 @@
 /*The big reset*/
 *,
-*::::::before,
-*::::before {
+*::before,
+*::before {
   box-sizing: border-box;
 }
 
@@ -51,8 +51,8 @@ ol, ul {
 blockquote, q {
   quotes: none;
 }
-blockquote::::::before, blockquote::::before,
-q::::::before, q::::before {
+blockquote::before, blockquote::before,
+q::before, q::before {
   content: '';
   content: none;
 }
@@ -97,21 +97,30 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-nav svg {
+nav {
   position: fixed;
   top: 0;
   right: 0;
-  margin: 1rem;
-  height: 4rem;
-  width: 4rem;
+  margin: 2rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+  z-index: 99;
+}
+nav svg {
+  height: 3rem;
+  width: 3rem;
   padding: 0.2rem;
   cursor: pointer;
-  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
   border: 1px solid #036f11;
   border-radius: 100%;
   filter: grayscale(80%);
+  background-color: rgb(224, 228, 217);
 }
+
+nav .shoppingList {
+  z-index: 99;
+  
+}
+
 
 
 section {
@@ -433,8 +442,7 @@ section {
  
 }
 
-.create_recipes input {
-  border-radius: 0.5rem 0 0 0.5rem;
+.create_recipes input, .create_recipes .newRecipeType, .create_recipes .newRecipeInstructions, .create_recipes .newIngredientUnit{
   background-color: rgba(3, 111, 17, 0.05);
   border-color: rgb(3, 111, 17);
   border-style: solid;
@@ -442,19 +450,30 @@ section {
   padding: 0.2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-.create_recipes .recipeName, .create_recipes .recipeImage, .create_recipes .recipeInstructions {
   border-radius: 0.5rem;
   width: 100%;
 }
 
-.create_recipes .ingredientAmount {
+.create_recipes .newIngredientUnit {
+  width: auto;
   border-radius: 0;
+  margin: 0;
+  padding: 0.2rem;
+}
+
+.create_recipes .newRecipeIngredientName {
+  border-radius: 0.5rem 0 0 0.5rem;
+  width: auto;
+}
+
+.create_recipes .newIngredientAmount {
+  border-radius: 0;
+  width:  auto;
+  margin: 0;
   
 }
 
-.create_recipes .recipeInstructions {
+.create_recipes .newRecipeInstructions {
   resize: vertical;
 }
 
@@ -467,6 +486,13 @@ section {
   font-weight: 700;
   margin: 0.5rem;
 }
+
+.create_recipes .addNewIngredients {
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 0;
+  padding: 0.4rem;
+}
+
 .create_recipes fieldset{
   display: flex;
   flex-direction:  column;
