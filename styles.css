@@ -116,6 +116,10 @@ nav svg {
   background-color: rgb(224, 228, 217);
 }
 
+nav svg:hover {
+  filter: grayscale(0%);
+}
+
 nav .shoppingList {
   z-index: 99;
   
