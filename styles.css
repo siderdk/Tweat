@@ -442,7 +442,7 @@ section {
  
 }
 
-.create_recipes input, .create_recipes .newRecipeType, .create_recipes .newRecipeInstructions, .create_recipes .newIngredientUnit{
+.create_recipes input, .create_recipes .newRecipeType, .create_recipes .newRecipeDescription, .create_recipes .newIngredientUnit{
   background-color: rgba(3, 111, 17, 0.05);
   border-color: rgb(3, 111, 17);
   border-style: solid;
@@ -473,7 +473,7 @@ section {
   
 }
 
-.create_recipes .newRecipeInstructions {
+.create_recipes .newRecipeDescription {
   resize: vertical;
 }
 

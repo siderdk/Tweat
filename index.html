@@ -63,7 +63,8 @@
                 </label>
                 <legend>Choose a type</legend>
                     <select type="dropdown" class="newRecipeType" placeholder="Type">
-                        <option value="breakfast" selected>Breakfast</option>
+                        <option value="" selected disabled></option>
+                        <option value="breakfast">Breakfast</option>
                         <option value="lunch">Lunch</option>
                         <option value="dinner">Dinner</option>
                         <option value="dessert">Dessert</option>
@@ -78,7 +79,8 @@
                     <input type="text" class="newRecipeIngredientName" placeholder="Ingredient">
                     <input type="number" class="newIngredientAmount" placeholder="Amount">
                     <select type="dropdown" class="newIngredientUnit" placeholder="Unit">
-                        <option value="unitTypes.weight[0]" selected>gr</option>
+                        <option value="" selected disabled></option>
+                        <option value="unitTypes.weight[0]">gr</option>
                         <option value="unitTypes.weight[1]">kg</option>
                         <option value="unitTypes.volume[0]">ml</option>
                         <option value="unitTypes.volume[1]">dl</option>
@@ -99,7 +101,7 @@
                 </label>
                     <legend>Add the instructions to your recipe</legend>
                 <label>
-                    <textarea maxlength="1000" class="newRecipeInstructions" placeholder="Instructions"></textarea>
+                    <textarea maxlength="1000" class="newRecipeDescription" placeholder="Instructions"></textarea>
                 </label><hr>
                 <button class="submitRecipe">Save recipe to the list</button>
                 </fieldset>

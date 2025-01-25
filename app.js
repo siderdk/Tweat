@@ -30,6 +30,11 @@ const addNewIngredientsBtn = document.querySelector('.addNewIngredientsBtn');
 const newRecipeName = document.querySelector('.newRecipeName');
 const newRecipeImg = document.querySelector('.newRecipeImage');
 const newRecipeType = document.querySelector('.newRecipeType');
+const newRecipePitch = document.querySelector('.newRecipePitch');
+const newIngredientName = document.querySelector('.newRecipeIngredientName');
+const newIngredientAmount = document.querySelector('.newIngredientAmount');
+const newIngredientUnit = document.querySelector('.newIngredientUnit');
+const newRecipeDescription = document.querySelector('.newRecipeDescription');
 const moreIngredientsContainer = document.querySelector('.moreIngredients');
 
 // the list of all recipes, will be an array of objects, to facilitate iteration and ordering
@@ -242,34 +247,25 @@ const getRecipeByKeyword = (recipesList, str) =>{
       return allRecipes;  
   } else {
   recipesList.forEach((recipe)=>{
+      // cheking only in the relevant parts of the recipe
       let found = false;
-      for (const key in recipe) {
-          const value = recipe[key];
-          // check for each value if it's a string 
-          if (typeof value === "string" && value.includes(cleanStr)){
-              found = true;
-              break 
-          };
-          // check for the value if it's an array to handle the case of ingredients
-          if ( Array.isArray(value)) {
-              value.forEach((ingredientsList)=>{
-                  for (const ingredientIndex in ingredientsList){
-                      const ingredient = ingredientsList[ingredientIndex]
-                      if (ingredient.includes(cleanStr)){
-                          found = true;
-                          break
-                      }
-                  }
-              })
-          }
-      }
+      if (recipe.title.toLowerCase().includes(cleanStr)) {
+        found = true
+      } else if (recipe.pitch.toLowerCase().includes(cleanStr)) {
+        found = true
+      } else if (recipe.description.toLowerCase().includes(cleanStr)) { 
+        found = true
+      } else if (recipe.ingredients.some((ingredient)=> ingredient.name.toLowerCase().includes(cleanStr))) {
+          found = true; 
+      };
       if (found) {
-          foundRecipes.push(recipe)
+          foundRecipes.push(recipe);
       }
   });
-  return foundRecipes
-}
-}
+  return foundRecipes;
+  }
+};  
+
 
 keywordSearchBtn.addEventListener("click", async (e)=>{
  /* recipesSearchResults.innerHTML = ""*/
@@ -335,7 +331,11 @@ let newRecipe = {
   pictureLink: "",
   type: "",
   pitch: "",
-  ingredients: [],
+  ingredients: [
+    { name: "", 
+      amount: "",
+      unit: "" }
+  ],
   description: "",
   edit: true
 };
@@ -370,7 +370,12 @@ addRecipeButton.addEventListener('click', ()=>{
 function resetNewRecipeForm() {
   newRecipeName.value = "";
   newRecipeImg.value = "";
-  newRecipeType.value = "";
+  newRecipeType.value = "--";
+  newRecipePitch.value = "";
+  newRecipeDescription.value = "";
+  newIngredientName.value = "";
+  newIngredientAmount.value = "";
+  newIngredientUnit.value = "";
   moreIngredientsContainer.innerHTML = "";
   ingredientCount = 1;
 }
@@ -387,7 +392,8 @@ addNewIngredientsBtn.addEventListener('click', ()=>{
     <input type="text" class="newRecipeIngredientName" placeholder="Ingredient">
                     <input type="number" class="newIngredientAmount" placeholder="Amount">
                     <select type="dropdown" class="newIngredientUnit" placeholder="Unit">
-                        <option value="unitTypes.weight[0]" selected>gr</option>
+                        <option value="" selected disabled></option>
+                        <option value="unitTypes.weight[0]">gr</option>
                         <option value="unitTypes.weight[1]">kg</option>
                         <option value="unitTypes.volume[0]">ml</option>
                         <option value="unitTypes.volume[1]">dl</option>
