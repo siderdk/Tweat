@@ -25,12 +25,12 @@ const setTimerBtn = document.querySelector('.set-timer-btn');
 const timerState = document.querySelector('.timer-state')
 const addRecipeButton = document.querySelector('.addRecipeButton');
 const addRecipeForm = document.querySelector('.addRecipeForm');
-
+const addNewIngredientsBtn = document.querySelector('.addNewIngredientsBtn');
 // the elements that will hold the new recipe
 const newRecipeName = document.querySelector('.newRecipeName');
 const newRecipeImg = document.querySelector('.newRecipeImage');
 const newRecipeType = document.querySelector('.newRecipeType');
-
+const moreIngredientsContainer = document.querySelector('.moreIngredients');
 
 // the list of all recipes, will be an array of objects, to facilitate iteration and ordering
 //the list of units that are used in the recipes
@@ -352,21 +352,62 @@ const addNewRecipe = (newRecipe) => {
 };
 
 
-// showing the form to add a new recipe
+// showing and resetting the form to add a new recipe
 addRecipeButton.addEventListener('click', ()=>{
   if(addRecipeButton.innerText === "Add your recipe to the list") {
-    addRecipeButton.innerText = "Hide the form";
+    addRecipeButton.innerText = "cancel";
     addRecipeButton.style.background = "rgba(0, 0, 0, 0.75)";
   } else {
     addRecipeButton.innerText = "Add your recipe to the list"
     addRecipeButton.style.background = "linear-gradient(90deg, #036f11, #6fca3a)";
+    resetNewRecipeForm(); 
   };
-  addRecipeForm.classList.toggle("hidden")
+  addRecipeForm.classList.toggle("hidden");
 
 });
 
+//resetting the form
+function resetNewRecipeForm() {
+  newRecipeName.value = "";
+  newRecipeImg.value = "";
+  newRecipeType.value = "";
+  moreIngredientsContainer.innerHTML = "";
+  ingredientCount = 1;
+}
 
 
+
+//adding a new ingredient to the new recipe
+let ingredientCount = 1; 
+const maxIngredients = 20;
+addNewIngredientsBtn.addEventListener('click', ()=>{
+  if (ingredientCount < maxIngredients) {
+    moreIngredientsContainer.innerHTML += `
+    <br>
+    <input type="text" class="newRecipeIngredientName" placeholder="Ingredient">
+                    <input type="number" class="newIngredientAmount" placeholder="Amount">
+                    <select type="dropdown" class="newIngredientUnit" placeholder="Unit">
+                        <option value="unitTypes.weight[0]" selected>gr</option>
+                        <option value="unitTypes.weight[1]">kg</option>
+                        <option value="unitTypes.volume[0]">ml</option>
+                        <option value="unitTypes.volume[1]">dl</option>
+                        <option value="unitTypes.volume[2]">l</option>
+                        <option value="unitTypes.volume[3]">cup</option>
+                        <option value="unitTypes.volume[4]">tbsp</option>
+                        <option value="unitTypes.volume[5]">tsp</option>
+                        <option value="unitTypes.counts[0]">pieces</option>
+                        <option value="unitTypes.counts[1]">dozen</option>
+                        <option value="unitTypes.counts[2]">bottle</option>
+                        <option value="unitTypes.counts[3]">pack</option>
+                        <option value="unitTypes.counts[4]">clove</option>
+                    </select>
+  `;
+    ingredientCount++;
+  } else {
+    alert(`You can only add up to ${ingredientCount} ingredients`)
+  }
+  
+});
 
   
 function addRecipe() {

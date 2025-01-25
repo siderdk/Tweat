@@ -487,7 +487,7 @@ section {
   margin: 0.5rem;
 }
 
-.create_recipes .addNewIngredients {
+.create_recipes .addNewIngredientsBtn {
   border-radius: 0 0.5rem 0.5rem 0;
   margin: 0;
   padding: 0.4rem;
