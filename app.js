@@ -343,7 +343,7 @@ timeCounter();
 //the object that will hold the new recipe 
 let newRecipe = {
   title: "",
-  id : `${title}${Date.now()}`,
+  id : `${Date.now()}`,
   pictureLink: "",
   type: "",
   pitch: "",
